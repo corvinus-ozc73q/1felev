@@ -46,5 +46,12 @@ namespace WindowsFormsApp3
             
             var result = response.GetExchangeRatesResult;
         }
+        new class RateData
+        { 
+         Date new DateTime
+                Currency new string
+                Value Decimal
+
+        }
     }
 }
