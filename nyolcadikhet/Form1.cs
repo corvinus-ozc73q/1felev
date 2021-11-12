@@ -43,7 +43,7 @@ namespace nyolcadikhet
             var maxPosition = 0;
             foreach (var ball in _balls)
             {
-                ball.MoveBall();
+                ball.MoveToy();
                 if (ball.Left > maxPosition)
                     maxPosition = ball.Left;
             }
@@ -54,6 +54,11 @@ namespace nyolcadikhet
                 mainPanel.Controls.Remove(oldestBall);
                 _balls.Remove(oldestBall);
             }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }

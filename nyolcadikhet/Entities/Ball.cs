@@ -1,4 +1,5 @@
 ﻿
+using nyolcadikhet.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,8 +10,10 @@ using System.Windows.Forms;
 
 namespace nyolcadikhet.Entities
 {
-    public class Ball : Label
+    public class Ball : Toy
+
     {
+        protected override void DrawImage(Graphics g);
         public Ball()
         {
             AutoSize = false;
@@ -32,6 +35,11 @@ namespace nyolcadikhet.Entities
         public void MoveBall()
         {
             Left += 1;
+        }
+
+        protected override void DrawImage(Graphics g)
+        {
+            throw new NotImplementedException();
         }
     }
 }
