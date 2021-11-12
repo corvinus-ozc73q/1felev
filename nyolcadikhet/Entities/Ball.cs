@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace nyolcadikhet.Entities
 {
-    class Ball : Label
+    public class Ball : Label
     {
         public Ball()
         {
