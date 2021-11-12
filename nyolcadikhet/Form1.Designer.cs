@@ -29,11 +29,19 @@ namespace nyolcadikhet
         /// </summary>
         private void InitializeComponent()
         {
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 0;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Controls.Add(this.monthCalendar1);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -45,6 +53,7 @@ namespace nyolcadikhet
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer createTimer;
         private System.Windows.Forms.Timer conveyorTimer;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 
