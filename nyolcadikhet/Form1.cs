@@ -1,4 +1,5 @@
 ﻿using nyolcadikhet.Entities;
+using nyolcadikhet.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace nyolcadikhet
 {
     public partial class Form1 : Form
     {
-        private List<Ball> _balls = new List<Ball>();
+        private List<Toy> _toys = new List<Toy><Ball>();
 
         private BallFactory _factory;
         public BallFactory Factory
@@ -27,25 +28,25 @@ namespace nyolcadikhet
             InitializeComponent();
 
 
-            Factory = new BallFactory();
+           Factory = new CarFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            _balls.Add(ball);
-            ball.Left = -ball.Width;
-            mainPanel.Controls.Add(ball);
+            var car = Factory.CreateNew();
+            _toys.Add(car);
+            car.Left = -car.Width;
+            mainPanel.Controls.Add(car);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var ball in _balls)
+            foreach (var car in _cars)
             {
-                ball.MoveToy();
-                if (ball.Left > maxPosition)
-                    maxPosition = ball.Left;
+                car.MoveToy();
+                if (car.Left > maxPosition)
+                    maxPosition = car.Left;
             }
 
             if (maxPosition > 1000)
