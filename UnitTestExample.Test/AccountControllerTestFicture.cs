@@ -11,9 +11,13 @@ namespace UnitTestExample.Test
     {
       //  [Test]
         public void TestValidateEmail(string email, bool expectedresult)
-        { 
+        {
             //Arrange
-            
+            var AccountController = new AccountControllerTestFicture();
+            //Act
+            var ActionResult = new ActionResult();
+
+            var 
         }
     }
 }
