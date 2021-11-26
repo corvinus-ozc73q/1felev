@@ -9,15 +9,22 @@ namespace UnitTestExample.Test
 {
     public class AccountControllerTestFicture
     {
-      //  [Test]
-        public void TestValidateEmail(string email, bool expectedresult)
-        {
-            //Arrange
-            var AccountController = new AccountControllerTestFicture();
-            //Act
-            var ActionResult = new ActionResult();
+      //Attribútum
+     [test,
+            TestCase("abcd1234",false),
+            TestCase("irf@uni-corvinus.hu", false)
+            TestCase("irf@uni-corvinus.hu", true)
 
-            var 
-        }
+
+
+            ]
+     [test,
+            TestCase("Abcdefgh", false)
+            TestCase("ABCD1234", false)
+            Testcase("abcd1234", false)
+
+            
+            
+            ]
     }
 }
