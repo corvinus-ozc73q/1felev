@@ -26,5 +26,7 @@ namespace UnitTestExample.Test
             
             
             ]
+     //Assert
+     Assert.AreEqual(expected Result, actualresult);
     }
 }
