@@ -29,7 +29,7 @@ namespace tizenegyedikhet
                 
                 for (int i = 0; i < Population.Count; i++)
                 {
-                    
+                    SimStep(2020, Population[1]);
                 }
 
                 int nbrOfMales = (from x in Population
@@ -61,6 +61,36 @@ namespace tizenegyedikhet
                 }
             }
             return population;
+        }
+        private void SimStep(int year, Person person)
+        {
+            if (!person.IsAlive) return;
+
+            byte age = (byte)(year - person.BirthYear);
+
+            double pDeath = (from x in DeathProbabilities
+                             where x.Gender == person.Gender && x.Age == age
+                             select x.DProbability).FirstOrDefault();
+            if (rng.NextDouble() <= pDeath)
+                person.IsAlive = false;
+
+          
+            if (person.IsAlive && person.Gender == Gender.Female)
+            {
+                
+                double pBirth = (from x in BirthProbabilities
+                                 where x.Age == age
+                                 select x.BProbability).FirstOrDefault();
+                
+                if (rng.NextDouble() <= pBirth)
+                {
+                    Person újszülött = new Person();
+                    újszülött.BirthYear = year;
+                    újszülött.NbrOfChildren = 0;
+                    újszülött.Gender = (Gender)(rng.Next(1, 3));
+                    Population.Add(újszülött);
+                }
+            }
         }
         public List<BirthProbability> GetBirthProbabilities(string csvpath)
         {
