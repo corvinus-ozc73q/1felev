@@ -46,6 +46,22 @@ namespace HardestGame
                              orderby p.GetFitness() descending
                              select p;
             var topPerformers = playerlist.Take(populationSize / 2).ToList();
+
+            gc.ResetCurrentLevel();
+            foreach(var p in topPerformers)
+            {
+                var b = p.Brain.Clone();
+                if (generation % 3 == 0)
+                    gc.AddPlayer(b.ExpandBrain(nbrOfStepsIncrement));
+                
+                else gc.AddPlayer(b);
+
+                if (generation % 3 == 0)
+                    gc.AddPlayer(b.Mutate().ExpandBrain(nbrOfStepsIncrement));
+
+
+            }
+            gc.Start();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
